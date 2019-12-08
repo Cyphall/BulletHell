@@ -42,16 +42,15 @@ public class EnemyScript extends Script
 		if (fireCD > 0) return;
 		fireCD = 60;
 		
-		Entity bullet = new Entity("enemyBullet");
+		Entity bullet = instantiate(new Entity());
+		bullet.setType("enemyBullet");
 		bullet.setRelativePos(entity.getAbsolutePos().add(0, 15));
 		bullet.addComponent(new SpriteRenderer("bullet2", 10));
 		bullet.addComponent(new Hitbox(-1, -7, 1, 7));
-		
-		BulletScript script = new BulletScript();
+
+		BulletScript script = bullet.addComponent(new BulletScript());
 		script.setDirection(new Vector2f(0, 1), 2);
 		script.setTarget("ally");
-		bullet.addComponent(script);
 		
-		getEntity().getScene().addEntity(bullet);
 	}
 }

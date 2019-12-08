@@ -7,7 +7,7 @@ import org.joml.Vector2f;
 public class BulletScript extends Script
 {
 	private Vector2f direction;
-	String target;
+	private String target;
 	
 	@Override
 	public void update()

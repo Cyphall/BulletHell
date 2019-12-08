@@ -14,13 +14,13 @@ public class MainScene extends Scene
 	@Override
 	protected void init()
 	{
-		Entity player = new Entity("ally", "player");
+		Entity player = instantiate(new Entity());
+		player.setType("ally");
+		player.setID("player");
 		player.addComponent(new PlayerScript());
 		
-		Entity enemy = new Entity("enemy");
+		Entity enemy = instantiate(new Entity());
+		enemy.setType("enemy");
 		enemy.addComponent(new EnemyScript());
-		
-		addEntity(player);
-		addEntity(enemy);
 	}
 }

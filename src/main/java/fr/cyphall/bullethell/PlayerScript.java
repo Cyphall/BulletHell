@@ -22,54 +22,52 @@ public class PlayerScript extends Script
 		getEntity().setRelativePos(new Vector2f(150, 350));
 		getEntity().addComponent(new SpriteRenderer("cockpit"));
 		getEntity().addComponent(new Hitbox(-8, -8, 8, 8));
-		getEntity().setRotation(20);
 		
-		gun = new Entity("ally");
+		gun = instantiate(new Entity());
 		getEntity().addChild(gun);
+		gun.setType("ally");
 		gun.setRelativePos(new Vector2f(0, -9));
 		gun.addComponent(new SpriteRenderer("canon", 2));
 		gun.addComponent(new Hitbox(-4, -8, 4, 1));
 		
-		Entity arriere = new Entity("ally");
+		Entity arriere = instantiate(new Entity());
 		getEntity().addChild(arriere);
+		arriere.setType("ally");
 		arriere.setRelativePos(new Vector2f(0, 12));
 		arriere.addComponent(new SpriteRenderer("arriere"));
 		arriere.addComponent(new Hitbox(-8, -4, 8, 4));
 		
-		Entity moteur1 = new Entity("ally");
+		Entity moteur1 = instantiate(new Entity());
 		arriere.addChild(moteur1);
+		moteur1.setType("ally");
 		moteur1.setRelativePos(new Vector2f(-12, 0));
 		moteur1.addComponent(new SpriteRenderer("moteur1"));
 		moteur1.addComponent(new Hitbox(-4, -4, 4, 4));
 		moteurs.add(moteur1);
 		
-		Entity moteur2 = new Entity("ally");
+		Entity moteur2 = instantiate(new Entity());
 		arriere.addChild(moteur2);
+		moteur2.setType("ally");
 		moteur2.setRelativePos(new Vector2f(12, 0));
 		moteur2.addComponent(new SpriteRenderer("moteur1"));
 		moteur2.addComponent(new Hitbox(-4, -4, 4, 4));
 		moteurs.add(moteur2);
 		
-		Entity moteur3 = new Entity("ally");
+		Entity moteur3 = instantiate(new Entity());
 		arriere.addChild(moteur3);
+		moteur3.setType("ally");
 		moteur3.setRelativePos(new Vector2f(-4, 6));
 		moteur3.addComponent(new SpriteRenderer("moteur2"));
 		moteur3.addComponent(new Hitbox(-3, -2, 3, 2));
 		moteurs.add(moteur3);
 		
-		Entity moteur4 = new Entity("ally");
+		Entity moteur4 = instantiate(new Entity());
 		arriere.addChild(moteur4);
+		moteur4.setType("ally");
 		moteur4.setRelativePos(new Vector2f(4, 6));
 		moteur4.addComponent(new SpriteRenderer("moteur2"));
 		moteur4.addComponent(new Hitbox(-3, -2, 3, 2));
 		moteurs.add(moteur4);
-		
-		getEntity().getScene().addEntity(gun);
-		getEntity().getScene().addEntity(arriere);
-		getEntity().getScene().addEntity(moteur1);
-		getEntity().getScene().addEntity(moteur2);
-		getEntity().getScene().addEntity(moteur3);
-		getEntity().getScene().addEntity(moteur4);
 	}
 	
 	@Override
@@ -103,16 +101,15 @@ public class PlayerScript extends Script
 		if (fireCD > 0) return;
 		fireCD = 10;
 		
-		Entity bullet = new Entity("allyBullet");
+		Entity bullet = instantiate(new Entity());
+		bullet.setType("allyBullet");
 		bullet.setRelativePos(entity.getAbsolutePos());
 		bullet.addComponent(new SpriteRenderer("bullet1", 10));
 		bullet.addComponent(new Hitbox(-1, -7, 1, 7));
 		
-		BulletScript script = new BulletScript();
+		BulletScript script = bullet.addComponent(new BulletScript());
 		script.setDirection(new Vector2f(0, -1), 6);
 		script.setTarget("enemy");
-		bullet.addComponent(script);
 		
-		getEntity().getScene().addEntity(bullet);
 	}
 }
