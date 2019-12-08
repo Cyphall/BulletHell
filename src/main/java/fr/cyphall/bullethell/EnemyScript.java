@@ -3,7 +3,7 @@ package fr.cyphall.bullethell;
 import fr.cyphall.cyphengine.component.Hitbox;
 import fr.cyphall.cyphengine.component.Script;
 import fr.cyphall.cyphengine.component.SpriteRenderer;
-import fr.cyphall.cyphengine.entity.Entity;
+import fr.cyphall.cyphengine.core.Entity;
 import org.joml.Vector2f;
 
 public class EnemyScript extends Script

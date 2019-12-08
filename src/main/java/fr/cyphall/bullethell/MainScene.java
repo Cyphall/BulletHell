@@ -1,7 +1,7 @@
 package fr.cyphall.bullethell;
 
+import fr.cyphall.cyphengine.core.Entity;
 import fr.cyphall.cyphengine.core.Scene;
-import fr.cyphall.cyphengine.entity.Entity;
 import org.joml.Vector2i;
 
 public class MainScene extends Scene
