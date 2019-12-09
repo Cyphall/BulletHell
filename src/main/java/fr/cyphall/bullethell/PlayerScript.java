@@ -19,52 +19,39 @@ public class PlayerScript extends Script
 	@Override
 	public void init()
 	{
-		getEntity().setRelativePos(new Vector2f(150, 350));
 		getEntity().addComponent(new SpriteRenderer("cockpit"));
 		getEntity().addComponent(new Hitbox(-8, -8, 8, 8));
 		
-		gun = instantiate(new Entity());
-		getEntity().addChild(gun);
+		gun = instantiate(new Entity(), new Vector2f(0, -9), getEntity());
 		gun.setType("ally");
-		gun.setRelativePos(new Vector2f(0, -9));
 		gun.addComponent(new SpriteRenderer("canon", 2));
 		gun.addComponent(new Hitbox(-4, -8, 4, 1));
 		
-		Entity arriere = instantiate(new Entity());
-		getEntity().addChild(arriere);
+		Entity arriere = instantiate(new Entity(), new Vector2f(0, 12), getEntity());
 		arriere.setType("ally");
-		arriere.setRelativePos(new Vector2f(0, 12));
 		arriere.addComponent(new SpriteRenderer("arriere"));
 		arriere.addComponent(new Hitbox(-8, -4, 8, 4));
 		
-		Entity moteur1 = instantiate(new Entity());
-		arriere.addChild(moteur1);
+		Entity moteur1 = instantiate(new Entity(), new Vector2f(-12, 0), arriere);
 		moteur1.setType("ally");
-		moteur1.setRelativePos(new Vector2f(-12, 0));
 		moteur1.addComponent(new SpriteRenderer("moteur1"));
 		moteur1.addComponent(new Hitbox(-4, -4, 4, 4));
 		moteurs.add(moteur1);
 		
-		Entity moteur2 = instantiate(new Entity());
-		arriere.addChild(moteur2);
+		Entity moteur2 = instantiate(new Entity(), new Vector2f(12, 0), arriere);
 		moteur2.setType("ally");
-		moteur2.setRelativePos(new Vector2f(12, 0));
 		moteur2.addComponent(new SpriteRenderer("moteur1"));
 		moteur2.addComponent(new Hitbox(-4, -4, 4, 4));
 		moteurs.add(moteur2);
 		
-		Entity moteur3 = instantiate(new Entity());
-		arriere.addChild(moteur3);
+		Entity moteur3 = instantiate(new Entity(), new Vector2f(-4, 6), arriere);
 		moteur3.setType("ally");
-		moteur3.setRelativePos(new Vector2f(-4, 6));
 		moteur3.addComponent(new SpriteRenderer("moteur2"));
 		moteur3.addComponent(new Hitbox(-3, -2, 3, 2));
 		moteurs.add(moteur3);
 		
-		Entity moteur4 = instantiate(new Entity());
-		arriere.addChild(moteur4);
+		Entity moteur4 = instantiate(new Entity(), new Vector2f(4, 6), arriere);
 		moteur4.setType("ally");
-		moteur4.setRelativePos(new Vector2f(4, 6));
 		moteur4.addComponent(new SpriteRenderer("moteur2"));
 		moteur4.addComponent(new Hitbox(-3, -2, 3, 2));
 		moteurs.add(moteur4);
@@ -101,9 +88,8 @@ public class PlayerScript extends Script
 		if (fireCD > 0) return;
 		fireCD = 10;
 		
-		Entity bullet = instantiate(new Entity());
+		Entity bullet = instantiate(new Entity(), entity.getAbsolutePos());
 		bullet.setType("allyBullet");
-		bullet.setRelativePos(entity.getAbsolutePos());
 		bullet.addComponent(new SpriteRenderer("bullet1", 10));
 		bullet.addComponent(new Hitbox(-1, -7, 1, 7));
 		
