@@ -1,8 +1,8 @@
 package fr.cyphall.bullethell;
 
-import fr.cyphall.cyphengine.core.Game;
-import fr.cyphall.cyphengine.core.ToolBox;
-import fr.cyphall.cyphengine.display.Window;
+import fr.cyphall.cyphengine.Game;
+import fr.cyphall.cyphengine.ToolBox;
+import fr.cyphall.cyphengine.Window;
 import org.joml.Vector2i;
 
 public class Main extends Game

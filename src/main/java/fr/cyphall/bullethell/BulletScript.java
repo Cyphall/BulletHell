@@ -1,7 +1,7 @@
 package fr.cyphall.bullethell;
 
-import fr.cyphall.cyphengine.component.Hitbox;
-import fr.cyphall.cyphengine.component.Script;
+import fr.cyphall.cyphengine.Hitbox;
+import fr.cyphall.cyphengine.Script;
 import org.joml.Vector2f;
 
 public class BulletScript extends Script

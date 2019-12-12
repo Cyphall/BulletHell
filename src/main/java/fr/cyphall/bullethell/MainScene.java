@@ -1,7 +1,7 @@
 package fr.cyphall.bullethell;
 
-import fr.cyphall.cyphengine.core.Entity;
-import fr.cyphall.cyphengine.core.Scene;
+import fr.cyphall.cyphengine.Entity;
+import fr.cyphall.cyphengine.Scene;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 

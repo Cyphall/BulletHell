@@ -1,10 +1,6 @@
 package fr.cyphall.bullethell;
 
-import fr.cyphall.cyphengine.component.Hitbox;
-import fr.cyphall.cyphengine.component.Script;
-import fr.cyphall.cyphengine.component.SpriteRenderer;
-import fr.cyphall.cyphengine.core.Entity;
-import fr.cyphall.cyphengine.core.ToolBox;
+import fr.cyphall.cyphengine.*;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;
