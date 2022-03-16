@@ -1,1 +1,1 @@
-Requires https://github.com/Cyphall/CyphEngine to be built and installed in your local maven repository.
+Requires https://github.com/Cyphall/CyphEngine-legacy to be built and installed in your local maven repository.
